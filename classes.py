@@ -4,7 +4,7 @@ class Usuario:
         self.senha = senha
         self.logado = False
 
-    def __login__(self, email, senha):
+    def login(self, email, senha):
         if self.email == email and self.senha == senha:
             self.logado = True
             print("Login realizado")
@@ -19,12 +19,29 @@ class Mensagem:
         self.reacoes = []
         self.fixada = False
 
-    def __add_reacao__(self, reacao):
+    def add_reacao(self, reacao):
         self.reacoes.append(reacao)
 
     def fixar(self):
         self.fixada = True
 
+
+class MensagemGrupo(Mensagem):
+    def __init__(self, remetente, conteudo):
+        super().__init__(remetente, conteudo)
+        self.lida_por = []
+
+    def marcar_como_lida(self, usuario):
+        self.lida_por.append(usuario.email)
+
+    def mostrar_lidos(self):
+        print(f"Mensagem '{self.conteudo}' lida por: ", self.lida_por)
+
+
+class MensagemPrivada(Mensagem):
+    def __init__(self, remetente, conteudo):
+        super().__init__(remetente, conteudo)
+        self.visualizada = False
 
 
 class Chat:
@@ -48,7 +65,7 @@ class ChatIndividual(Chat):
 
 class Grupo(Chat):
     def __init__(self, nome):
-        super().init__()
+        super().__init__()
         self.nome = nome
         self.membros = []
 
@@ -90,11 +107,20 @@ grupo.add_membro(u1)
 grupo.add_membro(u2)
 grupo.add_membro(u3)
 
-msg = Mensagem(u1, "tomara q funcione")
+msg = MensagemGrupo(u1, "tomara q funcione")
+msg2 = MensagemGrupo(u3, "funcionou")
+
 grupo.enviar_mensagem(msg)
+grupo.enviar_mensagem(msg2)
+
+msg.marcar_como_lida(u2)
+msg.marcar_como_lida(u3)
+msg2.marcar_como_lida(u1)
 
 grupo.listar_mensagens()
 grupo.mencionar_todos()
+msg.mostrar_lidos()
+msg2.mostrar_lidos()
 
 
 
