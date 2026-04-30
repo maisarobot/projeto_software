@@ -63,9 +63,9 @@ O projeto foi construído com o objetivo de aplicar conceitos como herança, pol
 
 ## 📚 Documentação
 
-- [Herança](https://github.com/maisarobot/projeto_software/blob/main/heran%C3%A7a.md)
-- [Polimorfismo](https://github.com/maisarobot/projeto_software/blob/main/polimorfismo.md)
-- [Funcionalidades](https://github.com/maisarobot/projeto_software/blob/main/documenta%C3%A7%C3%A3o.md)
+- [Herança](https://github.com/maisarobot/projeto_software/blob/main/docs/heran%C3%A7a.md)
+- [Polimorfismo](https://github.com/maisarobot/projeto_software/blob/main/docs/polimorfismo.md)
+- [Funcionalidades](https://github.com/maisarobot/projeto_software/blob/main/docs/documenta%C3%A7%C3%A3o.md)
 
 ---
 
